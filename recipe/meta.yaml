@@ -1,6 +1,6 @@
 {% set name = "leidenalg" %}
-{% set version = "0.7.0" %}
-{% set sha256 = "c1c92c5638ef0ccf67ea89ed311cf19116a82e67bf1a015a3e65f00653a3dc95" %}
+{% set version = "0.8.0" %}
+{% set sha256 = "ebab74ce92615b614bef9ec36a7318c45db928bd795ed262c4a10f4d009196ef" %}
 
 package:
   name: {{ name }}
@@ -12,10 +12,10 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   # the main dependency 'igraph' is not windows ready yet
-  skip: True  # [win]
+  skip: true  # [win]
 
 requirements:
   build:
@@ -39,14 +39,14 @@ requirements:
 test:
   imports:
     - igraph
-    - leidenalg 
+    - leidenalg
 
 about:
   home: https://github.com/vtraag/leidenalg
   license: GPLv3
   license_family: GPL
   license_file: LICENSE
-  summary: "Implementation of the Leiden algorithm for various methods for use with igraph in python."
+  summary: Implementation of the Leiden algorithm for various methods for use with igraph in python.
   description: |
     This package implements the Leiden algorithm in C++ and
     exposes it to python. It relies on (python-)igraph for it to
@@ -60,4 +60,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - vtraag 
+    - vtraag
