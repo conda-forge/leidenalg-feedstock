@@ -36,6 +36,7 @@ requirements:
     - m2w64-toolchain  # [win]
     - m2-automake-wrapper  # [win]
     - setuptools
+    - pip
     - setuptools_scm
     - igraph
     - python-igraph
@@ -44,8 +45,10 @@ requirements:
     - pip
     - setuptools
     - python-igraph
+    - pkg_resources
   run:
     - python
+    - setuptools
     - python-igraph
 
 test:
