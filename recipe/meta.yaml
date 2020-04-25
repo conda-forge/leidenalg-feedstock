@@ -1,6 +1,7 @@
 {% set name = "leidenalg" %}
 {% set version = "0.8.0" %}
 {% set sha256 = "ebab74ce92615b614bef9ec36a7318c45db928bd795ed262c4a10f4d009196ef" %}
+{% set posix = 'm2-' if win else '' %}
 
 package:
   name: {{ name }}
@@ -13,27 +14,35 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
-  # the main dependency 'igraph' is not windows ready yet
-  skip: true  # [win]
+  script: {{ PYTHON }} -m pip install . --no-deps -vv  # [not win]
+  skip : true  # [win and vc<14]
 
 requirements:
   build:
-    - pkg-config
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ compiler('fortran') }}
+    - pkg-config  # [not win]
+    - make  # [not win]
+    - {{posix}}autoconf
+    - automake  # [not win]
+    - {{posix}}bison
+    - {{posix}}flex
+    - {{posix}}libtool
+    - vs2017_{{ target_platform  }}  # [win]
+    - posix  # [win]
+    - m2w64-toolchain  # [win]
+    - m2-automake-wrapper  # [win]
+    - setuptools
+    - igraph
+    - python-igraph
   host:
     - python
     - pip
     - setuptools
-    - igraph
     - python-igraph
   run:
-    # We need to include setuptools have access to the pkg_resources,
-    # see https://stackoverflow.com/questions/7446187/no-module-named-pkg-resources
-    - setuptools
     - python
-    - igraph
     - python-igraph
 
 test:
