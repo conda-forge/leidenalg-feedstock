@@ -10,3 +10,25 @@ index 66021c6..0000000
 -[tool.setuptools_scm]
 -write_to = "src/version.py"
 \ No newline at end of file
+diff --git a/setup.py b/setup.py
+index a452111..7bfa3c5 100644
+--- a/setup.py
++++ b/setup.py
+@@ -782,9 +782,6 @@ options =  dict(
+   license = 'GPLv3+',
+   url = 'https://github.com/vtraag/leidenalg',
+ 
+-  use_scm_version=True,
+-  setup_requires=['setuptools_scm'],
+-
+   author = 'V.A. Traag',
+   author_email = 'vincent@traag.net',
+   test_suite = 'tests',
+@@ -793,7 +790,6 @@ options =  dict(
+   package_dir = {'leidenalg': 'src'},
+   packages = ['leidenalg'],
+   ext_modules = [leiden_ext],
+-  install_requires = ['python-igraph >= 0.8.0'],
+   platforms="ALL",
+   keywords=[
+     'graph',
