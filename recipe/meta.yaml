@@ -14,7 +14,7 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps -vv  # [not win]
+  script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation # [not win]
   skip : true  # [win and vc<14]
 
 requirements:
@@ -29,7 +29,7 @@ requirements:
     - {{ posix }}bison
     - {{ posix }}flex
     - {{ posix }}libtool
-    - vs2017_{{ target_platform  }}  # [win]
+    - vs2017_{{ target_platform }}  # [win]
     - posix  # [win]
     - m2w64-toolchain  # [win]
     - m2-automake-wrapper  # [win]
