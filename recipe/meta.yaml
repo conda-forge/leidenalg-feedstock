@@ -24,16 +24,17 @@ requirements:
     - {{ compiler('fortran') }}
     - pkg-config  # [not win]
     - make  # [not win]
-    - {{posix}}autoconf
+    - {{ posix }}autoconf
     - automake  # [not win]
-    - {{posix}}bison
-    - {{posix}}flex
-    - {{posix}}libtool
+    - {{ posix }}bison
+    - {{ posix }}flex
+    - {{ posix }}libtool
     - vs2017_{{ target_platform  }}  # [win]
     - posix  # [win]
     - m2w64-toolchain  # [win]
     - m2-automake-wrapper  # [win]
     - setuptools
+    - setuptools_scm
     - igraph
     - python-igraph
   host:
