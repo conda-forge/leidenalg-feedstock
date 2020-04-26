@@ -45,7 +45,6 @@ requirements:
     - pip
     - setuptools
     - python-igraph
-    - pkg_resources
   run:
     - python
     - setuptools
