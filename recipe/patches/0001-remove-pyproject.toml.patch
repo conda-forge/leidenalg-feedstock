@@ -1,0 +1,32 @@
+diff --git a/pyproject.toml b/pyproject.toml
+deleted file mode 100644
+index 66021c6..0000000
+--- a/pyproject.toml
++++ /dev/null
+@@ -1,5 +0,0 @@
+-[build-system]
+-requires = ["setuptools>=42", "wheel", "setuptools_scm[toml]>=3.4"]
+-
+-[tool.setuptools_scm]
+-write_to = "src/version.py"
+\ No newline at end of file
+diff --git a/setup.py b/setup.py
+index a452111..6b2883e 100644
+--- a/setup.py
++++ b/setup.py
+@@ -783,7 +783,6 @@ options =  dict(
+   url = 'https://github.com/vtraag/leidenalg',
+ 
+   use_scm_version=True,
+-  setup_requires=['setuptools_scm'],
+ 
+   author = 'V.A. Traag',
+   author_email = 'vincent@traag.net',
+@@ -793,7 +792,6 @@ options =  dict(
+   package_dir = {'leidenalg': 'src'},
+   packages = ['leidenalg'],
+   ext_modules = [leiden_ext],
+-  install_requires = ['python-igraph >= 0.8.0'],
+   platforms="ALL",
+   keywords=[
+     'graph',

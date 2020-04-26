@@ -1,6 +1,7 @@
 {% set name = "leidenalg" %}
-{% set version = "0.7.0" %}
-{% set sha256 = "c1c92c5638ef0ccf67ea89ed311cf19116a82e67bf1a015a3e65f00653a3dc95" %}
+{% set version = "0.8.0" %}
+{% set sha256 = "ebab74ce92615b614bef9ec36a7318c45db928bd795ed262c4a10f4d009196ef" %}
+{% set posix = 'm2-' if win else '' %}
 
 package:
   name: {{ name }}
@@ -10,43 +11,52 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - patches/0001-remove-pyproject.toml.patch
 
 build:
-  number: 2
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
-  # the main dependency 'igraph' is not windows ready yet
-  skip: True  # [win]
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation  # [not win]
+  skip : true  # [win and vc<14]
 
 requirements:
   build:
-    - pkg-config
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ compiler('fortran') }}
+    - pkg-config  # [not win]
+    - make  # [not win]
+    - {{ posix }}autoconf
+    - automake  # [not win]
+    - {{ posix }}bison
+    - {{ posix }}flex
+    - {{ posix }}libtool
+    - vs2017_{{ target_platform }}  # [win]
+    - posix  # [win]
+    - m2w64-toolchain  # [win]
+    - m2-automake-wrapper  # [win]
   host:
     - python
     - pip
     - setuptools
-    - igraph
+    - setuptools_scm
     - python-igraph
   run:
-    # We need to include setuptools have access to the pkg_resources,
-    # see https://stackoverflow.com/questions/7446187/no-module-named-pkg-resources
-    - setuptools
     - python
-    - igraph
+    - setuptools
     - python-igraph
 
 test:
   imports:
     - igraph
-    - leidenalg 
+    - leidenalg
 
 about:
   home: https://github.com/vtraag/leidenalg
   license: GPLv3
   license_family: GPL
   license_file: LICENSE
-  summary: "Implementation of the Leiden algorithm for various methods for use with igraph in python."
+  summary: Implementation of the Leiden algorithm for various methods for use with igraph in python.
   description: |
     This package implements the Leiden algorithm in C++ and
     exposes it to python. It relies on (python-)igraph for it to
@@ -60,4 +70,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - vtraag 
+    - vtraag
