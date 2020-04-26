@@ -35,11 +35,6 @@ requirements:
     - posix  # [win]
     - m2w64-toolchain  # [win]
     - m2-automake-wrapper  # [win]
-    - setuptools
-    - pip
-    - setuptools_scm
-    - igraph
-    - python-igraph
   host:
     - python
     - pip
