@@ -44,6 +44,7 @@ requirements:
     - python
     - pip
     - setuptools
+    - setuptools_scm
     - python-igraph
   run:
     - python
