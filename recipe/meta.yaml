@@ -1,6 +1,6 @@
 {% set name = "leidenalg" %}
-{% set version = "0.8.1" %}
-{% set sha256 = "9e24dc75c71bdf08d7f9a5d032e6b79b05c0f9138cd67b078394c6c3de8a089d" %}
+{% set version = "0.8.2" %}
+{% set sha256 = "02cc8e87d2000ea1da60e9efc9287764fe81e445ab9850ec728b006c37620289" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -17,7 +17,7 @@ source:
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation  # [not win]
-  skip: true   # [win and vc<14]
+  skip: true  # [win and vc<14]
 
 requirements:
   build:
