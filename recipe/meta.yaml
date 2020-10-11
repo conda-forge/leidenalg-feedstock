@@ -15,7 +15,7 @@ source:
     - patches/0001-remove-pyproject.toml.patch
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation  # [not win]
   skip: true  # [win and vc<14]
 
