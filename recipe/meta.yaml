@@ -1,6 +1,6 @@
 {% set name = "leidenalg" %}
-{% set version = "0.8.2" %}
-{% set sha256 = "02cc8e87d2000ea1da60e9efc9287764fe81e445ab9850ec728b006c37620289" %}
+{% set version = "0.8.3" %}
+{% set sha256 = "84c2fa673390b62986e51258cbe048a49c163e516ee791b372c2779c928d8e7e" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -15,7 +15,7 @@ source:
     - patches/0001-remove-pyproject.toml.patch
 
 build:
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation  # [not win]
   skip: true  # [win and vc<14]
 
