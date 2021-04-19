@@ -1,7 +1,6 @@
 {% set name = "leidenalg" %}
-{% set version = "0.8.3" %}
-{% set sha256 = "84c2fa673390b62986e51258cbe048a49c163e516ee791b372c2779c928d8e7e" %}
-{% set posix = 'm2-' if win else '' %}
+{% set version = "0.8.4" %}
+{% set sha256 = "45764e0fc8829d23dee7698bd91d07c2027423d6309bd66b9711cdfecbcf8459" %}
 
 package:
   name: {{ name }}
@@ -12,44 +11,39 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    - patches/0001-remove-pyproject.toml.patch
+    - 0001-Allow-for-external-linking-without-pkg-config.patch
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation  # [not win]
   skip: true  # [win and vc<14]
+
+  run_exports:
+    - {{ pin_subpackage("leidenalg", max_pin="x.x") }}
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ compiler('fortran') }}
-    - pkg-config  # [not win]
-    - make  # [not win]
-    - {{ posix }}autoconf
-    - automake  # [not win]
-    - {{ posix }}bison
-    - {{ posix }}flex
-    - {{ posix }}libtool
     - vs2017_{{ target_platform }}  # [win]
-    - posix  # [win]
-    - m2w64-toolchain  # [win]
-    - m2-automake-wrapper  # [win]
   host:
+    - igraph
     - python
-    - pip
     - setuptools
     - setuptools_scm
-    - python-igraph
+    - pip
   run:
-    - python
-    - setuptools
+    - igraph
     - python-igraph
+    - python
+    - pip
 
 test:
   imports:
-    - igraph
     - leidenalg
+  commands:
+    - python -m unittest
 
 about:
   home: https://github.com/vtraag/leidenalg
