@@ -1,6 +1,6 @@
 {% set name = "leidenalg" %}
-{% set version = "0.8.4" %}
-{% set sha256 = "45764e0fc8829d23dee7698bd91d07c2027423d6309bd66b9711cdfecbcf8459" %}
+{% set version = "0.8.7" %}
+{% set sha256 = "4cde1c51bc110e567b63a5f17f4321ff4073d79c67e8c3c7d956f07dc90ff7be" %}
 
 package:
   name: {{ name }}
@@ -10,8 +10,6 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - 0001-Allow-for-external-linking-without-pkg-config.patch
 
 build:
   number: 0
@@ -40,6 +38,10 @@ requirements:
     - pip
 
 test:
+  requires:
+    - ddt
+  source_files:
+    - tests
   imports:
     - leidenalg
   commands:
