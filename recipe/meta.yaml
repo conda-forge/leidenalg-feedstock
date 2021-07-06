@@ -38,6 +38,8 @@ requirements:
     - pip
 
 test:
+  requires:
+    - ddt
   source_files:
     - tests
   imports:
