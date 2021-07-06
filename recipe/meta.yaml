@@ -38,6 +38,8 @@ requirements:
     - pip
 
 test:
+  source_files:
+    - tests
   imports:
     - leidenalg
   commands:
