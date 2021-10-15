@@ -1,6 +1,6 @@
 {% set name = "leidenalg" %}
-{% set version = "0.8.7" %}
-{% set sha256 = "4cde1c51bc110e567b63a5f17f4321ff4073d79c67e8c3c7d956f07dc90ff7be" %}
+{% set version = "0.8.8" %}
+{% set sha256 = "12750f66d1f0c84ed4484fa895a9d5a163e2f4b611edb12ad09cc66120654df3" %}
 
 package:
   name: {{ name }}
