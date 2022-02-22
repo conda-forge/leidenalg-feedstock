@@ -1,6 +1,6 @@
 {% set name = "leidenalg" %}
-{% set version = "0.8.8" %}
-{% set sha256 = "12750f66d1f0c84ed4484fa895a9d5a163e2f4b611edb12ad09cc66120654df3" %}
+{% set version = "0.8.9" %}
+{% set sha256 = "37779372f1ae1fd1a5570aabb625b708c82ea87858e9b7d1e4c768f934ae1180" %}
 
 package:
   name: {{ name }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win and vc<14]
 
   run_exports:
