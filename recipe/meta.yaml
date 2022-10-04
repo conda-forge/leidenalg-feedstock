@@ -24,9 +24,9 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - vs2017_{{ target_platform }}  # [win]
+
   host:
-    - igraph
+    - igraph >= 0.10,<0.11
     - python
     - setuptools
     - setuptools_scm
