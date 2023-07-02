@@ -1,11 +1,11 @@
-About leidenalg
-===============
+About leidenalg-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/leidenalg-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/vtraag/leidenalg
 
 Package license: GPL-3.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/leidenalg-feedstock/blob/main/LICENSE.txt)
 
 Summary: Implementation of the Leiden algorithm for various methods for use with igraph in python.
 
