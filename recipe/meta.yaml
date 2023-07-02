@@ -27,12 +27,14 @@ requirements:
 
   host:
     - igraph >=0.10,<0.11
+    - libleidenalg >=0.11,<0.12
     - python
     - setuptools
     - setuptools_scm
     - pip
   run:
-    - igraph
+    - igraph >=0.10,<0.11
+    - libleidenalg >=0.11,<0.12
     - python-igraph
     - python
     - pip
