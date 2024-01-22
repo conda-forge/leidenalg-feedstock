@@ -1,6 +1,6 @@
 {% set name = "leidenalg" %}
-{% set version = "0.10.1" %}
-{% set sha256 = "457ad96982a80bd5c657189f42dfeb77eebcd3b744a110e5a2c1618d2eb80b47" %}
+{% set version = "0.10.2" %}
+{% set sha256 = "0f4147a92b59834a719bfce30d563ea107e570130a7be60adbc8b95757192e4c" %}
 
 package:
   name: {{ name }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win and vc<14]
   script: {{ PYTHON }} -m pip install . -vv
 
