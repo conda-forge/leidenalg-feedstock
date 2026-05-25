@@ -1,6 +1,6 @@
 {% set name = "leidenalg" %}
-{% set version = "0.11.0" %}
-{% set sha256 = "f454be96bbc8089ea2a90ca853d8d389ab646de964a03bd58417f8b29ff8ef5d" %}
+{% set version = "0.12.0" %}
+{% set sha256 = "c81a45a2fb874fe71e903d43a869d0efeb7f907af70476c03f6945ef0e8f44c5" %}
 
 package:
   name: {{ name }}
@@ -25,7 +25,7 @@ requirements:
     - {{ compiler('cxx') }}
 
   host:
-    - libleidenalg >=0.11
+    - libleidenalg >=0.13
     - python
     - setuptools
     - setuptools_scm
